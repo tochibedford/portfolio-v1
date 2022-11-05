@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 2000 2000">
+    <g>
+        <g fill="hsl(16, 100%, 50%)" id="star" transform="matrix(1,0,0,1,0,-25)">
+            <path d="M 20.979024793718054 335.6643216860044 C 1000 1000 1000 1000 1958.0419580419584 76.92307692307696 C 1000 1000 1000 1000 1835.6643237133967 1220.2796801587085 C 1000 1000 1000 1000 -17.482518202774827 2045.4545189917508 C 1000 1000 1000 1000 20.979024793718054 335.6643216860044" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

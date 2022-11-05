@@ -1,0 +1,6 @@
+<svg viewBox="0 0 2000 2000">
+    <filter id="fractalNoise">
+      <feTurbulence baseFrequency="0.35" type="fractalNoise" numOctaves="1" id="turbulence"></feTurbulence>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#fractalNoise)"></rect>
+</svg>
