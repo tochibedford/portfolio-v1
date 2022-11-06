@@ -1,5 +1,23 @@
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
 .main__container {
   position: relative;
+
   .svg__filter {
     position: absolute;
   }
@@ -15,13 +33,14 @@
     font-size: clamp(125px, 25vw, 20px);
     text-align: center;
 
-    .main__subheading__2{
+    .main__subheading__2 {
       overflow-wrap: break-word;
+      animation: fadeInOut 3s ease-in-out infinite forwards;
 
-      &:before{
+      &:before {
         content: "\"";
       }
-  
+
       &:after {
         content: "\"";
       }

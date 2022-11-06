@@ -25,34 +25,40 @@ export default function Home() {
   const [iseDeviceMOT, setIsDeviceMOT] = useState(true);
 
   const skills = ["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "REACT", "THE CANVAS"]
-  
-  
-  // const handleAnimationEnd = () => {
-  //   console.log("hey")
-  //   if (skillRef.current?.textContent !== undefined) {
-  //     skillRef.current.textContent = skills[count]
-  //     count++
-  //   }
-  // }
+
+
+  let count = 1
+  const handleTransitionEnd = () => {
+    if (count > skills.length - 1) {
+      count = 0
+    }
+    if (skillRef.current?.textContent !== undefined) {
+      skillRef.current.textContent = skills[count]
+      count++
+    }
+  }
   useEffect(() => {
-    let count = 1
     setIsDeviceMOT(isDeviceMobileOrTablet())
     if (skillRef.current?.textContent !== undefined) {
       skillRef.current.textContent = skills[0]
+      skillRef.current.addEventListener('animationiteration', () => {
+        handleTransitionEnd()
+      })
     }
-    const skillInterval = setInterval(()=>{
-      if(count>skills.length-1){
-        count = 0
-      }
-      if(skillRef.current?.textContent !== undefined){
-        skillRef.current.textContent = skills[count]  
-        count++
-      }
-    }, 3000)
 
-    return ()=>{
-      clearInterval(skillInterval)
-    }
+    // const skillInterval = setInterval(()=>{
+    //   if(count>skills.length-1){
+    //     count = 0
+    //   }
+    //   if(skillRef.current?.textContent !== undefined){
+    //     skillRef.current.textContent = skills[count]  
+    //     count++
+    //   }
+    // }, 3000)
+
+    // return ()=>{
+    //   clearInterval(skillInterval)
+    // }
   }, [])
   return (
     <div className={styles.container}>
@@ -89,7 +95,7 @@ export default function Home() {
         <motion.h1 className={styles.main__heading} initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { duration: 0.7 } }}>{"HI I'M TOCHI"}</motion.h1>
         <div className={styles.work__with}>
           <motion.h2 className={styles.main__subheading} initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1, transition: { duration: 0.7, delay: 0.3 } }}>{"I WORK WITH"}</motion.h2>
-          <motion.h2 ref={skillRef} className={styles.main__subheading__2} animate={{ y: [-50, 0, 50], opacity: [0, 0, 1, 1, 1, 0, 0], transition: { duration: 3, delay: 0.3, repeat: Infinity } }}  ></motion.h2>
+          <h2 ref={skillRef} className={styles.main__subheading__2} ></h2>
         </div>
         {iseDeviceMOT ? "" : <CanvasWork />}
       </main>

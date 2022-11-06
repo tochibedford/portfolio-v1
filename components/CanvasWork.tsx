@@ -127,7 +127,7 @@ export default function CanvasWork() {
             })
 
             //mouse position color
-            if (getDistance(this.x, this.y, mouse.x, mouse.y) < 100) {
+            if (getDistance(this.x, this.y, mouse.x, mouse.y) < 150) {
                 this.fill += 0.1
                 this.fill = Math.min(1, this.fill)
             } else {
