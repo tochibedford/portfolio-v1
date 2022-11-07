@@ -1,4 +1,51 @@
+@import './colors.scss';
+
 .canvas__container {
-    cursor: none;
-    filter: url(#canvasNoise);
+    position: relative;
+    // cursor: none;
+
+    canvas {
+        filter: url(#canvasNoise);
+    }
+
+    .canvas__menu {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        filter: none;
+        overflow: hidden;
+        height: 70%;
+
+        li {
+            text-align: center;
+            list-style: none;
+            font-size: clamp(70px, 8vw, 90px);
+            flex: 1 0 300px;
+            transition: scale 0.6s, text-shadow 0.6s;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+
+            a {
+                color: initial;
+                text-decoration: none;
+            }
+
+            &:hover {
+                color: #d1e5fff8;
+                scale: 1.16;
+                text-shadow:
+                    3px 3px 0px $primary-bg,
+                    6px 6px 0px #7fa0c9,
+                    9px 9px 0px $secondary-bg;
+                filter: url(#canvasNoise) !important;
+            }
+        }
+    }
 }

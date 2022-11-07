@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import CanvasWork from '../components/CanvasWork'
 import { useEffect, useRef, useState } from 'react'
 
@@ -24,20 +24,26 @@ export default function Home() {
   const skillRef = useRef<HTMLDivElement>(null)
   const [iseDeviceMOT, setIsDeviceMOT] = useState(true);
 
-  const skills = ["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "REACT", "THE CANVAS"]
 
 
-  let count = 1
-  const handleTransitionEnd = () => {
-    if (count > skills.length - 1) {
-      count = 0
-    }
-    if (skillRef.current?.textContent !== undefined) {
-      skillRef.current.textContent = skills[count]
-      count++
-    }
-  }
+  const { scrollYProgress } = useScroll();
+  // const sc = useRef(scrollYProgress)
+  // useEffect(() => {
+  //   console.log(sc.current)
+  // }, [scrollYProgress])
+
   useEffect(() => {
+    const skills = ["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "REACT", "THE CANVAS"]
+    let count = 1
+    const handleTransitionEnd = () => {
+      if (count > skills.length - 1) {
+        count = 0
+      }
+      if (skillRef.current?.textContent !== undefined) {
+        skillRef.current.textContent = skills[count]
+        count++
+      }
+    }
     setIsDeviceMOT(isDeviceMobileOrTablet())
     if (skillRef.current?.textContent !== undefined) {
       skillRef.current.textContent = skills[0]
@@ -46,19 +52,6 @@ export default function Home() {
       })
     }
 
-    // const skillInterval = setInterval(()=>{
-    //   if(count>skills.length-1){
-    //     count = 0
-    //   }
-    //   if(skillRef.current?.textContent !== undefined){
-    //     skillRef.current.textContent = skills[count]  
-    //     count++
-    //   }
-    // }, 3000)
-
-    // return ()=>{
-    //   clearInterval(skillInterval)
-    // }
   }, [])
   return (
     <div className={styles.container}>
@@ -98,6 +91,9 @@ export default function Home() {
           <h2 ref={skillRef} className={styles.main__subheading__2} ></h2>
         </div>
         {iseDeviceMOT ? "" : <CanvasWork />}
+        <motion.div style={{scaleX: scrollYProgress}}>
+          hey
+        </motion.div>
       </main>
     </div>
   )
