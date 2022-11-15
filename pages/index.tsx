@@ -85,7 +85,7 @@ export default function Home() {
           </filter>
         </svg>
 
-        <motion.h1 className={styles.main__heading} initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { duration: 0.7 } }}>{"HI I'M TOCHI"}</motion.h1>
+        <motion.h1 className={styles.main__heading} initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { duration: 0.7 } }}>{"HI I'M TOCHI."}</motion.h1>
         <div className={styles.work__with}>
           <motion.h2 className={styles.main__subheading} initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1, transition: { duration: 0.7, delay: 0.3 } }}>{"I WORK WITH"}</motion.h2>
           <h2 ref={skillRef} className={styles.main__subheading__2} ></h2>

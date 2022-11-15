@@ -25,7 +25,8 @@
   .main__heading {
     font-size: clamp(150px, 25vw, 300px);
     text-align: center;
-    margin-bottom: 20vh;
+    margin-top: 0.3em;
+    margin-bottom: 2vh;
     filter: url(#noise);
   }
 
@@ -33,7 +34,12 @@
     font-size: clamp(125px, 25vw, 20px);
     text-align: center;
 
+    .main__subheading{
+      // color: #3d3d3d;
+    }
+
     .main__subheading__2 {
+      // color: #5f5f5f;
       overflow-wrap: break-word;
       animation: fadeInOut 3s ease infinite forwards;
 
